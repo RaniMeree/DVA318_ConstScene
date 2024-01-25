@@ -1,7 +1,7 @@
 from tqdm import tqdm
 from torchvision import transforms
-from Tools.prepare_dataset import download_and_unzip
-from constscene.segmentation_dataset_for_unet import get_loaders
+from prepare_dataset import download_and_unzip
+from segmentation_dataset_for_unet import get_loaders
 from torch import nn, optim
 import argparse
 import os
@@ -9,6 +9,8 @@ import numpy as np
 import torch
 import segmentation_models_pytorch as smp
 import logging
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 def seed_everything(seed):
